@@ -17,5 +17,6 @@ include ("./layout/slider.php");
             </div>
         </div>
     </section>
-</body>
-</html>
+<?php
+include('./layout/footer.php');
+?>

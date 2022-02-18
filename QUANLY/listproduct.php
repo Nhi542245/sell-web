@@ -1,12 +1,12 @@
 <?php
 include ("./layout/header.php");
-include ("./layout/slider.php");
 ?>
-
-<div class="admin-content-right">
+    <section>
             <div class="container">
-                <h1>Danh sách Sản phẩm</h1>
-                <table border="1" class="table">                    
+                <br>
+                <h1>Danh sách Sản phẩm</h1><br>
+                <button class='btn primary fm-primary'>Thêm sản phẩm</button>
+                <table border="1" cellspacing="0" class="table">                    
                     <tr>
                         <th>STT</th>
                         <th>MSHH</th>
@@ -25,8 +25,8 @@ include ("./layout/slider.php");
                         <td>90.000</td>
                         <td>20</td>
                         <td>
-                            <button>Sửa</button>
-                            <button>Xóa</button>
+                            <button class="btn primary">Sửa</button>
+                            <button class="btn error">Xóa</button>
                         </td>
                     </tr>
                     <tr>
@@ -37,12 +37,13 @@ include ("./layout/slider.php");
                         <td>200.000</td>
                         <td>20</td>
                         <td>
-                            <button>Sửa</button>
-                            <button>Xóa</button>
+                            <button class="btn primary">Sửa</button>
+                            <button class="btn error">Xóa</button>
                         </td>
                     </tr>
                 </table>
             </div>        
     </section>
-</body>
-</html>
+<?php
+include('./layout/footer.php');
+?>
