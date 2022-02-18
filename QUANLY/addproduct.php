@@ -18,5 +18,6 @@ include ("./layout/slider.php");
             </div>
         </div>
     </section>
+    <script src="./javascript/animation.js"></script>
 </body>
 </html>
