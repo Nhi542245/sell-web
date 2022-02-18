@@ -16,7 +16,6 @@ a{
 }
 
 header{
-    height: 100px;
     width: 100vw;
     border-bottom: 2px solid #dddddd;
     text-align: center;
@@ -105,4 +104,37 @@ td{
     width: 35px;
     height: 25px;
     margin-left: 3px;
+}
+
+.menu {
+    text-align: center;
+    width: auto;
+}
+
+.menu ul {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.menu ul li {
+    display: block;
+    float: left;
+    width: 140px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: gray;
+}
+
+.menu ul li a:hover {
+    font-weight: bold;
+    color: black;
+}
+
+.active {
+    font-weight: bold;
+    color: black !important;
 }
