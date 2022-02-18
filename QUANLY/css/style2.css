@@ -53,7 +53,7 @@ header{
 
 .container{
     width: 80%;
-    margin: 0 auto;    
+    margin: 0;   
 }
 
 .input{
@@ -75,9 +75,34 @@ header{
     border-radius: 3px;
     transition:  all 0.2s ease;
 }
-
 .button:hover{
     background-color: transparent;
     border: 1px solid brown;
     color: brown;
+}
+/* ---------css for list product------------ */
+.table{
+    width: 1000px;
+    height: 150px;
+    margin-top: 15px;    
+}
+
+.table th, td{
+    text-align: center;
+    height: 30px;
+}
+
+td{
+    width: 10px;
+}
+
+.table img{
+    width: 100px;
+    height: 90px;    
+}
+
+.table button{
+    width: 35px;
+    height: 25px;
+    margin-left: 3px;
 }
