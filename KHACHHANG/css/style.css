@@ -19,6 +19,44 @@ a{
     flex-wrap: wrap;
 }
 
+/* -----------css for login--------- */
+body{overflow:hidden;}
+
+svg {
+  width: 100vw;
+  height: 100vh;
+}
+
+:root{
+    --pink-color: #e26e70;
+}
+
+.login-btn{
+    padding: 20px 40px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 25px;
+}
+
+.login{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0,6);
+}
+
+.login-inner{
+    width: 400px;
+    position: relative;
+    
+}
+
 /* --------css for header----------- */
 header{
     display: flex;
@@ -166,6 +204,13 @@ img{
 /* ------css for category------- */
 .category{
     padding: 50px 0 0;
+}
+
+.tag{
+    margin-bottom: 0px !important;
+    color: red !important;
+    text-decoration: line-through;
+    font-size: 14px !important;
 }
 
 .category-left{
@@ -640,7 +685,7 @@ img{
 }
 
 .delivery-content-left{
-    width: 60%;
+    width: 800px;
     padding-left: 20px;
 }
 
@@ -718,7 +763,7 @@ img{
 }
 
 .delivery-content-right table{
-    width: 100%;
+    width: 500px;
     font-size: 15px;
     text-align: center;
 }
@@ -833,16 +878,6 @@ img{
     color: black;
     cursor: pointer;
     border: 1px solid rgb(51, 146, 150);
-}
-
-.payment-content-mnv{
-    margin-top: 15px;
-}
-
-.payment-content-mnv select{
-    width: 240px;
-    color: #75758A;
-    padding-left: 8px;
 }
 
 .payment-content-payment{
