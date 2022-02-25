@@ -952,3 +952,70 @@ img{
     background-color: rgb(37, 202, 194);
     color: black;
 }
+
+.list-notifications {
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    width: 400px;
+    height: 100vh;
+    left: calc(100vw - 400px);
+    transition: 0.1s;
+    background-color: rgba(179, 179, 179, 0.7);
+    overflow-y: scroll;
+}
+
+.list-notifications .notification {
+    width: 95%;
+    margin: 10px auto;
+    background-color: #efefef;
+    height: 5rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #999999;
+}
+
+.notification .close-notification {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #efefef;
+    border: none;
+    transition: 0.2s all ease;
+    
+} 
+
+.close-notification svg {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+}
+
+.close-notification:hover {
+    background-color: #acabab;
+}
+
+.icon-success {
+    width: 50px;
+    height: 50px;
+    color: green;
+    margin-left: 30px;
+    margin-top: 15px;
+    float: left;
+}
+
+.notification p {
+    position: relative;
+    top: 30px;
+    left: 10px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
