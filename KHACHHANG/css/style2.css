@@ -224,6 +224,14 @@ header{
     font-size: 16px;
 }
 
-.text-error {
-    color: red;
+.form-container .register-link {
+    font-size: 13px;
+}
+
+.form-container .register-link a {
+    color: rgb(245, 113, 135);
+}
+
+.form-container .register-link a:hover {
+    color: rgb(246, 36, 71);
 }

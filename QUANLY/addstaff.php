@@ -1,22 +1,66 @@
 <?php
-include ("./layout/header.php");
-include ("./layout/slider.php");
+include("./layout/header.php");
+include("./layout/slider.php");
 ?>
 
 <div class="admin-content-right">
-            <div class="container">
-                <h1>Thêm Nhân viên</h1>
-                <form action="" method="POST">
-                    <input required class="input" name="TenNV" type="text" placeholder="Nhập họ tên nhân viên">
-                    <input required class="input" name="passNV" type="text" placeholder="Nhập password">
-                    <input required class="input" name="chucvuNV" type="text" placeholder="Nhập chức vụ">
-                    <input required class="input" name="diachiNV" type="text" placeholder="Nhập địa chỉ">
-                    <input required class="input" name="sdtNV" type="text" placeholder="Nhập số điện thoại">
-                    <button type="submit" class='button'>Thêm</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <div class="container">
+        <h1>Thêm Nhân viên</h1>
+        <form action="" method="POST">
+            <input  class="input" name="TenNV" type="text" placeholder="Nhập họ tên nhân viên">
+            <input  class="input" name="passwordNV" type="password" placeholder="Nhập password">
+            <input  class="input" name="chucvuNV" type="text" placeholder="Nhập chức vụ">
+            <input  class="input" name="diachiNV" type="text" placeholder="Nhập địa chỉ">
+            <input  class="input" name="sdtNV" type="text" placeholder="Nhập số điện thoại">
+            <?php
+            if (isset($_SESSION['error_submit_staff'])) {
+                echo "<p class='text-error'>".$_SESSION['error_submit_staff']."</p>";
+                unset($_SESSION['error_submit_staff']);
+            }
+            ?>
+            <input type="submit" name="submit" class='button' value="Thêm">
+        </form>
+    </div>
+</div>
 <?php
 include('./layout/footer.php');
+?>
+
+<?php
+if (isset($_POST['submit'])) {
+    //lay du lieu
+    $tenNhanVien = $_POST['TenNV'];
+    $passwordNV = $_POST['passwordNV'];
+    $chucvuNhanVien = $_POST['chucvuNV'];
+    $diachiNhanVien = $_POST['diachiNV'];
+    $sdtNV = $_POST['sdtNV'];
+
+    //kiem tra
+    if ( !(strlen($tenNhanVien) && strlen($passwordNV) && strlen($chucvuNhanVien) 
+    && strlen($diachiNhanVien) && strlen($sdtNV)) ) {
+        $_SESSION['error_submit_staff'] = 'Vui lòng nhập đầy đủ thông tin';
+        die();
+    }
+
+    //luu du lieu
+    //mo ket noi
+    $conn = new mysqli('localhost', 'root', '', 'quanlydathang');
+    //kiem tra ket noi
+    if ($conn->connect_error) {
+        $_SESSION['error_submit_staff'] = 'Kết nối tới cơ sở dữ liệu không thành công';
+        die();
+    }
+    //ma hoa mat khau
+    $passwordNV = md5($passwordNV, true);
+    $sql = "INSERT INTO `nhanvien` (`HoTenNV`, `Password`, `ChucVu`, `DiaChi`, `SoDienThoai`) VALUES (
+        '$tenNhanVien',
+        '$passwordNV',
+        '$chucvuNhanVien',
+        '$diachiNhanVien',
+        '$sdtNV')";
+    //$result = mysqli_query($conn, "select * from nhanvien");
+    $conn->query($sql);
+    echo $sql;
+    die();
+}
 ?>
