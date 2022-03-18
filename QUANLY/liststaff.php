@@ -5,7 +5,13 @@ include ("./layout/header.php");
             <div class="container">
                 <br>
                 <h1>Danh sách Nhân viên</h1><br>
-                <button class='btn primary fm-primary'>Thêm nhân viên</button>
+                <a class='btn primary fm-primary' href="http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/addstaff.php">Thêm nhân viên</a>
+                <?php
+                if (isset($_SESSION['success'])) {
+                    echo "<br/><br/><p class='text-success'>".$_SESSION['success']."</p>";
+                    unset($_SESSION['success']);
+                }
+                ?>
                     <table border="1" cellspacing="0" class="table">                    
                         <tr>
                             <th>STT</th>

@@ -6,6 +6,12 @@ include ("./layout/header.php");
                 <br>
                 <h1>Danh sách Sản phẩm</h1><br>
                 <button class='btn primary fm-primary'>Thêm sản phẩm</button>
+                <?php
+                if (isset($_SESSION['success'])) {
+                    echo "<p class='text-success'>".$_SESSION['success']."</p>";
+                    unset($_SESSION['success']);
+                }
+                ?>
                 <table border="1" cellspacing="0" class="table">                    
                     <tr>
                         <th>STT</th>

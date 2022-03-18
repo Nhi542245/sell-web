@@ -58,9 +58,18 @@ if (isset($_POST['submit'])) {
         '$chucvuNhanVien',
         '$diachiNhanVien',
         '$sdtNV')";
-    //$result = mysqli_query($conn, "select * from nhanvien");
-    $conn->query($sql);
-    echo $sql;
-    die();
+    
+    $result = $conn->query($sql);
+    //giai phong du lieu
+    unset($_POST['submit'], $_POST['TenNV'], $_POST['passwordNV'], $_POST['chucvuNV'], $_POST['diachiNV'], $_POST['sdtNV'] );
+    //chuyen huong
+    if (isset($result)) {
+        $_SESSION['success'] = 'Thêm nhân viên thành công';
+        header('location: http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/liststaff.php');
+        die();
+    } else {
+        $_SESSION['error_submit_staff'] = 'Thêm dữ liệu không thành công';
+        die();
+    }
 }
 ?>
