@@ -8,7 +8,7 @@ include ("./layout/header.php");
                 <button class='btn primary fm-primary'>Thêm sản phẩm</button>
                 <?php
                 if (isset($_SESSION['success'])) {
-                    echo "<p class='text-success'>".$_SESSION['success']."</p>";
+                    echo "<br/><br/><p class='text-success'>".$_SESSION['success']."</p>";
                     unset($_SESSION['success']);
                 }
                 ?>

@@ -167,6 +167,30 @@ header{
     background-color: rgb(187, 1, 1);
 }
 
+/* css for register form */
+.container-register {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/backgroud/register.jpg);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    display: table;
+}
+
+.container-register .register-form {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.register-form .form-container {
+    width: 350px;
+    height: 520px;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
 /* css for login form */
 .container-login {
     width: 100vw;
@@ -203,6 +227,8 @@ header{
     width: 80%;
     height: 35px;
     border: none;
+    font-size: 15px;
+    padding-left: 8px;
     border-bottom: 1px solid gray;
 }
 
@@ -234,4 +260,5 @@ header{
 
 .form-container .register-link a:hover {
     color: rgb(246, 36, 71);
+    text-decoration: underline;
 }

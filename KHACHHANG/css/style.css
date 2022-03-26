@@ -19,95 +19,6 @@ a{
     flex-wrap: wrap;
 }
 
-/* -----------css for login--------- */
-svg {
-  width: 100vw;
-  height: 100vh;
-}
-
-:root{
-    --pink-color: #e26e70;
-}
-
-.login-btn{
-    padding: 20px 40px;
-    border: none;
-    outline: none;
-    border-radius: 6px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    font-size: 25px;
-}
-
-.login{
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-}
-
-.login-inner{
-    width: 400px;
-    position: relative;
-    text-align: center;
-    margin: auto;
-    top: 50%;
-    background: wheat;
-    border-radius: 5px;
-    /* overflow: hidden; */
-    animation: loginShow 0.2s linear;
-}
-
-.login-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: var(--pink-color);
-    color: white;
-}
-
-.login-body{
-    padding: 15px;
-}
-
-.login-body input{
-    height: 30px;
-    margin-bottom: 12px;
-    padding-left: 5px;
-}
-
-.login-footer{
-    padding: 15px;
-    text-align: center;
-}
-
-.login-footer button{
-    padding: 10px 20px;
-    color: white;
-    background: var(--pink-color);
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
-.hide{
-    display: none;
-}
-
-@keyframes loginShow{
-    from{
-        -top: 200px;
-        opacity: 0;
-    }
-    to{
-        -top: 0px;
-        opacity: 1;
-    }
-}
 
 /* --------css for header----------- */
 header{
@@ -116,7 +27,7 @@ header{
     padding: 12px 50px;
     height: 100px;
     align-items: center;
-    background-color: rgb(245, 212, 245);
+    background-color: rgb(248, 200, 248);
 }
 
 .logo{
@@ -192,7 +103,7 @@ header{
 .info{
     width: 100%;
     height: 400px;
-    background-color: rgb(240, 204, 240);
+    background-color: rgb(221, 138, 221);
 }
 
 hr{
@@ -1018,4 +929,57 @@ img{
 
 .hide {
     display: none;
+}
+
+/* ---------css for order success------------- */
+.notification{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: green;
+    margin: 30px 0 70px 0;   
+}
+
+.notification p{
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.message{
+    text-align: center;  
+}
+
+.message p{
+    margin-bottom: 5px;
+}
+
+.message h6{
+    font-size: 15px;
+    padding: 0 20px 010px 20px;    
+}
+
+.review{
+    width: 200px;
+    height: 30px;
+    margin: 30px 20px 30px 0;
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.review:hover{
+    background-color: rgb(236, 174, 236) !important;
+}
+
+.continue{
+    width: 200px;
+    height: 30px;
+    margin: 30px 20px 30px 0;
+    background-color: palevioletred;
+    border: 1px solid rgb(231, 94, 94);
+    border-radius: 3px;
+}
+
+.continue:hover{
+    background-color: rgb(236, 57, 162);
 }
