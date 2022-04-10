@@ -1,12 +1,17 @@
 <?php
 include ("./layout/header.php");
 include ("./layout/slider.php");
+if(!isset($_SESSION['userId'])){
+    $_SESSION['error_submit_login'] = 'Vui lòng đăng nhập tài khoản';
+    header('location: http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/login.php');
+}
 ?>
 
 <div class="admin-content-right">
             <div class="container">
                 <h1>Thêm Sản phẩm</h1>
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <input class="input" name="MSHH" type="number" placeholder="Nhập mã số hàng hóa">
                     <input class="input" name="tenHH" type="text" placeholder="Nhập tên hàng hóa">
                     <input class="input" name="motaHH" type="text" placeholder="Nhập mô tả hàng hóa">
                     <input class="input" name="giaHH" type="text" placeholder="Nhập giá">
@@ -19,7 +24,7 @@ include ("./layout/slider.php");
                         unset($_SESSION['error_submit_product']);
                     }
                     ?>
-                    <button type="submit" class='button'>Thêm</button>
+                    <input type="submit" name='submit' class='button' value='Thêm'/>
                 </form>
             </div>
         </div>
@@ -31,16 +36,17 @@ include('./layout/footer.php');
 <?php
 if (isset($_POST['submit'])) {
     //lay du lieu
+    $MSHH = $_POST['MSHH'];
     $tenHangHoa = $_POST['tenHH'];
     $motaHangHoa = $_POST['motaHH'];
     $giaHangHoa = $_POST['giaHH'];
     $soluongHangHoa = $_POST['soluongHH'];
     $ghichu = $_POST['ghichu'];
-    $hinhHangHoa = $_POST['hinhHH'];
+    $hinhHangHoa = $_FILES['hinhHH'];
 
     //kiem tra
     if ( !(strlen($tenHangHoa) && strlen($motaHangHoa) && strlen($giaHangHoa) 
-    && strlen($soluongHangHoa) && strlen($ghichu) && strlen($hinhHangHoa)) ) {
+    && strlen($soluongHangHoa) && strlen($ghichu) && strlen($MSHH)) ) {
         $_SESSION['error_submit_product'] = 'Vui lòng nhập đầy đủ thông tin';
         die();
     }
@@ -53,9 +59,21 @@ if (isset($_POST['submit'])) {
         $_SESSION['error_submit_product'] = 'Kết nối tới cơ sở dữ liệu không thành công';
         die();
     }
+
+    //upload img
+    $image = $_FILES['hinhHH'];
+    //store image
+    $image_name = $image['name'];
+    $is_success_upload = move_uploaded_file($image["tmp_name"], '../image/'.$image_name);
+    if (!$is_success_upload) {
+        $_SESSION['error_submit_product'] = 'Lưu hình ảnh không thành công';
+        die();        
+    }
+
     //ma hoa mat khau
-    //$passwordNV = md5($passwordNV, true);
-    $sql = "INSERT INTO `hanghoa` (`TenHH`, `MoTaHH`, `Gia`, `SoLuongHang`, `GhiChu`) VALUES (
+    
+    $sql = "INSERT INTO `hanghoa` (`MSHH` ,`TenHH`, `MoTaHH`, `Gia`, `SoLuongHang`, `GhiChu`) VALUES (
+        $MSHH,
         '$tenHangHoa',
         '$motaHangHoa',
         '$giaHangHoa',
@@ -63,8 +81,15 @@ if (isset($_POST['submit'])) {
         '$ghichu')";
     
     $result = $conn->query($sql);
+
+    $sql = "INSERT INTO `hinhHH` (`TenHinh`, `MSHH`) VALUES (
+        '$image_name',
+        $MSHH)";
+    
+    $result = $conn->query($sql);
+
     //giai phong du lieu
-    unset($_POST['submit'], $_POST['tenHH'], $_POST['motaHH'], $_POST['giaHH'], $_POST['soluongHH'], $_POST['ghichu'] );
+    unset($_POST['MSHH'], $_POST['submit'], $_POST['tenHH'], $_POST['motaHH'], $_POST['giaHH'], $_POST['soluongHH'], $_POST['ghichu'], $_FILES['hinhHH'] );
     //chuyen huong
     if (isset($result)) {
         $_SESSION['success'] = 'Thêm hàng hóa thành công';

@@ -1,5 +1,9 @@
 <?php
 include ("./layout/header.php");
+if(!isset($_SESSION['userId'])){
+    $_SESSION['error_submit_login'] = 'Vui lòng đăng nhập tài khoản';
+    header('location: http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/login.php');
+}
 ?>
     <section>
             <div class="container">
@@ -22,19 +26,39 @@ include ("./layout/header.php");
                             <th>Số điện thoại</th>   
                             <th>Cập nhật</th>                     
                         </tr>
+                        <?php
+                        //mo ket noi
+                        $conn = new mysqli('localhost', 'root', '', 'quanlydathang');
 
-                        <tr>
-                            <td>1</td>
-                            <td>100</td>
-                            <td>Vân Nhi</td>                        
-                            <td>Thu ngân</td>
-                            <td>57 CMT8, An Thới, Bình Thủy, CT</td>
-                            <td>0939695677</td>
-                            <td>
-                                <button class="btn primary">Sửa</button>
-                                <button class="btn error">Xóa</button>
-                            </td>
-                        </tr>
+                        //kiem tra ket noi
+                        if ($conn->connect_error) {
+                            $_SESSION['error_submit_staff'] = 'Kết nối tới cơ sở dữ liệu không thành công';
+                            die();
+                        }
+
+                        $sql = "SELECT * FROM `nhanvien`";
+                        
+                        $result = $conn->query($sql);
+
+                        $i = 0;
+                        while($row = mysqli_fetch_array($result)) {
+                            $i ++;
+                        ?>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $row['MSNV'] ?></td>
+                                <td><?php echo $row['HoTenNV'] ?></td>                        
+                                <td><?php echo $row['ChucVu'] ?></td>
+                                <td><?php echo $row['DiaChi'] ?></td>
+                                <td><?php echo $row['SoDienThoai'] ?></td>
+                                <td>
+                                <a class='btn primary' href="http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/updatestaff.php?id=<?php echo $row['MSNV'] ?>">Sửa</a>
+                                <a class='btn error' href="http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/deletestaff.php?id=<?php echo $row['MSNV'] ?>">Xóa</a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                    ?>
                 </table>
             </div>        
     </section>

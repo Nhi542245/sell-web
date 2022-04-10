@@ -20,19 +20,19 @@ session_start();
         <div class="menu">
             <ul>
                 <li>
-                    <a href="#" id="item-1" class="active">Trang chủ</a>
+                    <a href="http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/" id="item-1" class="active">Trang chủ</a>
                 </li>
                 <li>
-                    <a href="#" id="item-2">Nhân viên</a>
+                    <a href="http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/liststaff.php" id="item-2">Nhân viên</a>
                 </li>
                 <li>
-                    <a href="#" id="item-3">Sản phẩm</a>
+                    <a href="http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/listproduct.php" id="item-3">Sản phẩm</a>
                 </li>
                 <li>
-                    <a href="#" id="item-4">Đơn hàng</a>
+                    <a href="http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/listorder.php" id="item-4">Đơn hàng</a>
                 </li>
                 <li>
-                    <a href="#" id="item-5">Đăng xuất</a>
+                    <a href="http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/logout.php" id="item-5">Đăng xuất</a>
                 </li>
             </ul>
         </div>

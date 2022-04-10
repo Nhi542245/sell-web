@@ -1,6 +1,10 @@
 <?php
 include ("./layout/header.php");
 include ("./layout/slider.php");
+if(!isset($_SESSION['userId'])){
+    $_SESSION['error_submit_login'] = 'Vui lòng đăng nhập tài khoản';
+    header('location: http://localhost/B1805901_NGUYEN_HUYNH_VAN_NHI/QUANLY/login.php');
+}
 ?>
 
 <div class="admin-content-right">

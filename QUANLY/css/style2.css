@@ -231,3 +231,7 @@ header{
 .text-success {
     color: green;
 }
+
+.error-login {
+    font-size: 12px;
+}
